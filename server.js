@@ -44,8 +44,13 @@ app.post('/create', (req, res) => {
 </html>
     `.trim();
 
-    fs.writeFileSync(filePath, html);
-    res.redirect(`/${slug}.html`);
+    // Attempt to write the file locally (works in local dev, may fail on cloud platforms like Render)
+    try {
+        fs.writeFileSync(filePath, html);
+        res.redirect(`/${slug}.html`);
+    } catch (err) {
+        return res.status(500).send('Failed to create page.');
+    }
 });
 
 app.listen(PORT, () => {
