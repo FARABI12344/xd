@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create a Page</title>
+</head>
+<body>
+  <h1>Create Your Own Page</h1>
+  <form action="/create" method="POST">
+    <label>Page Name (slug):</label><br>
+    <input type="text" name="slug" placeholder="example-page" required><br><br>
+    
+    <label>Page Content (HTML allowed):</label><br>
+    <textarea name="content" rows="10" cols="50" placeholder="<h1>Hello</h1>" required></textarea><br><br>
+    
+    <button type="submit">Create Page</button>
+  </form>
+</body>
+</html>
